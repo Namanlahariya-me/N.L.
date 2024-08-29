@@ -1,0 +1,29 @@
+require "razorpay"
+Razorpay.setup('YOUR_KEY_ID', 'YOUR_SECRET')
+
+para_attr = {
+  "plan_id": "plan_HoYg68p5kmuvzD",
+  "total_count": 12,
+  "quantity": 1,
+  "expire_by": 1633237807,
+  "customer_notify": 1,
+  "addons": [
+    {
+      "item": {
+        "name": "Delivery charges",
+        "amount": 30000,
+        "currency": "INR"
+      }
+    }
+  ],
+  "notes": {
+    "notes_key_1": "Tea, Earl Grey, Hot",
+    "notes_key_2": "Tea, Earl Grey… decaf."
+  },
+  "notify_info": {
+    "notify_phone": +9000090000,
+    "notify_email": "gaurav.kumar@example.com"
+  }
+}
+
+Razorpay::Subscription.create(para_attr)
